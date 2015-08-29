@@ -71,23 +71,23 @@ This directory structure is designed to make Hadoop version upgrades much easier
 1. Download the latest Hadoop binary distribution from [here](http://hadoop.apache.org/releases.html).
 
 2. We will unpack the binary distribution in the ```/opt``` system directory.
-```shell
-tar zxvf /path/to/downloaded/hadoop-VERSION.tar.gz
-chown -R root.root hadoop-VERSION
-```
+   ```shell
+   tar zxvf /path/to/downloaded/hadoop-VERSION.tar.gz
+   chown -R root.root hadoop-VERSION
+   ```
 
 3. Create the proposed directory layout for easy versioning:
-```shell
-mv hadoop-VERSION apache-hadoop-VERSION
-ln -sfn apache-hadoop-VERSION apache-hadoop
-```
+   ```shell
+   mv hadoop-VERSION apache-hadoop-VERSION
+   ln -sfn apache-hadoop-VERSION apache-hadoop
+   ```
 
 4. Setup the local instance directory:
-```shell
-git clone https://github.com/hhromic/easy-hadoop-deployment hadoop
-cd hadoop
-scripts/setup.sh
-```
+   ```shell
+   git clone https://github.com/hhromic/easy-hadoop-deployment hadoop
+   cd hadoop
+   scripts/setup.sh
+   ```
 
 5. The ```setup.sh``` script will ask questions for customizing your Hadoop instance. It will try to do its best to guess the best values that you should use.
 
