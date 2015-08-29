@@ -1,8 +1,9 @@
 bin
+data
+etc
 include
 lib
 libexec
+logs
 sbin
 share
-data
-logs
