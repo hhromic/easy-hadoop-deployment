@@ -22,7 +22,7 @@ You should put the following services into one or more **node** servers:
 System Users/Groups
 -------------------
 
-Hadoop requires a number of system users to work more safely. In particular, you need three system users (```hdfs```, ```yarn``` and ```mapred```) and one system group (```hadoop```). You can setup all those users/groups in a Debian-like machine using the following commands:
+Hadoop requires a number of system users to work more safely. In particular, you need three system users (```hdfs```, ```yarn``` and ```mapred```) and one system group (```hadoop```). You can setup and customize all those users/groups in a Debian-like machine using the following commands:
 
 ```shell
 addgroup --system hadoop
@@ -34,7 +34,7 @@ adduser yarn hadoop
 adduser mapred hadoop
 ```
 
-Please note that ```/opt/hadoop``` is the directory where you decide to unpack the Hadoop binary distribution (see below). Adjust this path accordingly if you change the default.
+Please note that ```/opt/hadoop``` is the directory where you decided to unpack the Hadoop binary distribution (see below). Adjust this path accordingly during installation of the Hadoop instance.
 
 Native Libraries for Compression
 --------------------------------
@@ -51,9 +51,9 @@ apt-get install libsnappy
 Installation
 ------------
 
-The steps below assume you are using the  ```root``` user. The installation will be done in the ```/opt``` system directory. If you change this default, you will need to update the ```vars.sh``` configuration file later (see the Configuration section).
+The steps below assume you are using the  ```root``` user. The installation will be done in the ```/opt``` system directory.
 
-### Directory Layout
+### Directory Layout for Versioning
 
 Inside the ```/opt``` directory we will have the following directory layout:
 ```
@@ -62,11 +62,11 @@ Inside the ```/opt``` directory we will have the following directory layout:
 /opt/hadoop
 ```
 
-The ```/opt/apache-hadoop-VERSION``` directory is an unpacked Hadoop binary distribution of a certain VERSION (i.e. 2.7.1). The ```/opt/apache-hadoop```symlink points to a Hadoop binary distribution installation you wish to use (normally you would use the latest version). Finally, the ```/opt/hadoop``` directory contains the local instance with custom configuration and datafiles (i.e. HDFS objects). This directory only contains data and configuration files, not binaries! (see later).
+The ```/opt/apache-hadoop-VERSION``` directory is an unpacked Hadoop binary distribution of a certain VERSION (i.e., ```2.7.1```). The ```/opt/apache-hadoop``` symlink points to the Hadoop binary distribution installation you wish to use (normally you would use the latest version). Finally, the ```/opt/hadoop``` directory contains the local instance with custom configuration and datafiles (i.e. HDFS objects). This directory only contains data and configuration files, not binaries! (see later).
 
 This directory structure is designed to make Hadoop version upgrades much easier. See the Upgrade section for details.
 
-### Instruction for the Designated Central Server
+### Instructions for the Designated Central Server
 
 1. Download the latest Hadoop binary distribution from [here](http://hadoop.apache.org/releases.html).
 
@@ -82,14 +82,16 @@ mv hadoop-VERSION apache-hadoop-VERSION
 ln -sfn apache-hadoop-VERSION apache-hadoop
 ```
 
-4. Initialize the local instance directory:
+4. Setup the local instance directory:
 ```shell
 git clone https://github.com/hhromic/easy-hadoop-deployment hadoop
 cd hadoop
 scripts/setup.sh
 ```
 
-### Instruction for the Designated Node Servers
+5. The ```setup.sh``` script will ask questions for customizing your Hadoop instance. It will try to do its best to guess the best values that you should use.
+
+### Instructions for the Designated Node Servers
 
 Once you have a working **central** Hadoop installation, all you have to do is to copy the installed directories into all your designated **node** machines. You don't need to change any configuration setting, but just launch the node-related services (see the Starting/Stopping Services section).
 
