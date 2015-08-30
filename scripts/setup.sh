@@ -134,6 +134,10 @@ sed -i -e "/<configuration>/a $PROPERTIES" etc/hadoop/hdfs-site.xml
 # setup the 'yarn-site.xml' configuration file
 PROPERTIES=$(cat <<EOF | sed -e 's/  /\\ \\ /g' -e ':a;N;$!ba;s/\n/\\n/g'
   <property>
+    <name>yarn.resourcemanager.bind-host</name>
+    <value>0.0.0.0</value>
+  </property>
+  <property>
     <name>yarn.resourcemanager.address</name>
     <value>$CS_ADDRESS:8032</value>
   </property>
