@@ -43,7 +43,7 @@ To make use of native system libraries for compression in Hadoop, you will requi
 
 ```shell
 apt-get install zlib1g
-apt-get install libsnappy
+apt-get install libsnappy1
 ```
 
 **Note:** the default Hadoop binary distribution is not compiled with support for native BZip2 compression.
