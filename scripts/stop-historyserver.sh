@@ -9,5 +9,5 @@ bin=`cd "$bin"; pwd`
 . $bin/../etc/vars.sh
 
 sudo -u $MAPRED_USER -g $HADOOP_GROUP JAVA_HOME=$JAVA_HOME \
-    HADOOP_MAPRED_LOG_DIR=$MAPRED_LOG_DIR HADOOP_MAPRED_PID_DIR=$MAPRED_PID_DIR \
-    $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_PREFIX/etc/hadoop stop historyserver
+    HADOOP_MAPRED_LOG_DIR=$MAPRED_LOG_DIR HADOOP_MAPRED_PID_DIR=$MAPRED_DATA_DIR \
+    $HADOOP_INSTANCE/sbin/mr-jobhistory-daemon.sh --config $HADOOP_INSTANCE/etc/hadoop stop historyserver

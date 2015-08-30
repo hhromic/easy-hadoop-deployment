@@ -11,4 +11,4 @@ bin=`cd "$bin"; pwd`
 exec=`basename $0`
 
 JAVA_HOME=$JAVA_HOME HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar \
-    $HADOOP_PREFIX/bin/$exec --config $HADOOP_PREFIX/etc/hadoop $@
+    $HADOOP_INSTANCE/bin/$exec --config $HADOOP_INSTANCE/etc/hadoop $@
