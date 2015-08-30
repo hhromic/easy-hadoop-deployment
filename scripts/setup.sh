@@ -120,6 +120,10 @@ PROPERTIES=$(cat <<EOF | sed -e 's/  /\\ \\ /g' -e ':a;N;$!ba;s/\n/\\n/g'
     <value>file://$HDFS_DATA_DIR/data</value>
   </property>
   <property>
+    <name>dfs.namenode.rpc-bind-host</name>
+    <value>0.0.0.0</value>
+  </property>
+  <property>
     <name>dfs.permissions.superusergroup</name>
     <value>$HADOOP_GROUP</value>
   </property>
