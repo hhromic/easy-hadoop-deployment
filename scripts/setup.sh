@@ -124,6 +124,10 @@ PROPERTIES=$(cat <<EOF | sed -e 's/  /\\ \\ /g' -e ':a;N;$!ba;s/\n/\\n/g'
     <value>0.0.0.0</value>
   </property>
   <property>
+    <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+    <value>false</value>
+  </property>
+  <property>
     <name>dfs.permissions.superusergroup</name>
     <value>$HADOOP_GROUP</value>
   </property>
